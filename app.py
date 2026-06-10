@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Load the model using a relative path
-# Ensure you save your best model as 'model.pkl' in the same folder
+# Ensure you save your best model as 'model.pkl' in the same folder on GitHub
 @st.cache_resource
 def load_model():
     return joblib.load("C:\Users\Hi\Desktop\project\model.pkl")
@@ -54,5 +54,5 @@ if submit_button:
             st.success("✅ **Non-Hazardous**: This object is not considered a threat.")
             
     except ValueError as e:
-        st.error(f"Prediction Error: Feature mismatch.")
+        st.error("Prediction Error: Feature mismatch.")
         st.info(f"Details: {e}")
