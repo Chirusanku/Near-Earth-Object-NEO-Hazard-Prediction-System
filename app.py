@@ -25,7 +25,7 @@ st.write("Enter the asteroid's measurements below to predict if it is hazardous:
 # Form for user inputs
 with st.form("neo_form"):
     
-    # Standard columns for the Kaggle NEO dataset. 
+    # Standard input fields for the NEO dataset measurements
     absolute_magnitude = st.number_input("Absolute Magnitude (H)", value=20.0, format="%.4f")
     est_diameter_min = st.number_input("Estimated Diameter Min (km)", value=0.1, format="%.4f")
     est_diameter_max = st.number_input("Estimated Diameter Max (km)", value=0.2, format="%.4f")
@@ -35,11 +35,11 @@ with st.form("neo_form"):
     submit_button = st.form_submit_button(label="Predict Hazard")
 
 if submit_button:
-    # IMPORTANT: The dictionary keys below MUST match the exact column names in your X_train dataset
+    # IMPORTANT: These keys now exactly match what your model expects (est_diameter_min/max)
     input_data = pd.DataFrame({
         "absolute_magnitude": [absolute_magnitude],
-        "estimated_diameter_min": [est_diameter_min],
-        "estimated_diameter_max": [est_diameter_max],
+        "est_diameter_min": [est_diameter_min],
+        "est_diameter_max": [est_diameter_max],
         "relative_velocity": [relative_velocity],
         "miss_distance": [miss_distance]
     })
