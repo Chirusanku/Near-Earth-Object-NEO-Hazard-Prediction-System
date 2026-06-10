@@ -6,7 +6,7 @@ import joblib
 # Ensure you save your best model as 'model.pkl' in the same folder on GitHub
 @st.cache_resource
 def load_model():
-    return joblib.load("C:\Users\Hi\Desktop\project\model.pkl")
+    return joblib.load("model.pkl")
 
 try:
     model = load_model()
