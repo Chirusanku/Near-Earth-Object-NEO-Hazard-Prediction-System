@@ -25,23 +25,23 @@ st.write("Enter the asteroid's measurements below to predict if it is hazardous:
 # Form for user inputs
 with st.form("neo_form"):
     
-    # Standard input fields for the NEO dataset measurements
-    absolute_magnitude = st.number_input("Absolute Magnitude (H)", value=20.0, format="%.4f")
+    # Input fields
     est_diameter_min = st.number_input("Estimated Diameter Min (km)", value=0.1, format="%.4f")
     est_diameter_max = st.number_input("Estimated Diameter Max (km)", value=0.2, format="%.4f")
     relative_velocity = st.number_input("Relative Velocity (km/h)", value=50000.0, format="%.2f")
     miss_distance = st.number_input("Miss Distance (km)", value=5000000.0, format="%.2f")
+    absolute_magnitude = st.number_input("Absolute Magnitude (H)", value=20.0, format="%.4f")
 
     submit_button = st.form_submit_button(label="Predict Hazard")
 
 if submit_button:
-    # IMPORTANT: These keys now exactly match what your model expects (est_diameter_min/max)
+    # IMPORTANT: Exact names and exact order expected by the model
     input_data = pd.DataFrame({
-        "absolute_magnitude": [absolute_magnitude],
         "est_diameter_min": [est_diameter_min],
         "est_diameter_max": [est_diameter_max],
         "relative_velocity": [relative_velocity],
-        "miss_distance": [miss_distance]
+        "miss_distance": [miss_distance],
+        "absolute_magnitude": [absolute_magnitude]
     })
 
     try:
